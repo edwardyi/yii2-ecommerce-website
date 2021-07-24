@@ -11,6 +11,8 @@ services:
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
       # Mount source-code for development
       - ./:/app
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/group:/etc/group:ro
     depends_on:
       - mysql
 
@@ -23,6 +25,8 @@ services:
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
       # Mount source-code for development
       - ./:/app
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/group:/etc/group:ro
     depends_on:
         - mysql
 
@@ -35,7 +39,11 @@ services:
       - MYSQL_DATABASE=yii2advanced
       - MYSQL_USER=yii2advanced
       - MYSQL_PASSWORD=secret
+    volumes:
+      - data
 
+volumes:
+  data:
   #pgsql:
   #  image: postgres:9.5
   #  environment:
