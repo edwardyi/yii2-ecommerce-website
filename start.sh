@@ -1,0 +1,1 @@
+docker-compose down && docker-compose up -d && docker-compose exec -u $(id -u) backend bash
