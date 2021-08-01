@@ -42,6 +42,8 @@ services:
       - 8080:80
     links:
       - mysql
+    environment:
+      - PMA_ARBITRARY=1
 
 volumes:
    my-data:
