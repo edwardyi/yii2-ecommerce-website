@@ -39,7 +39,7 @@ return [
         ],
         'assetManager' => [
             'bundles' => [
-                yii\bootstrap\BootstrapAsset::class => false
+                yii\bootstrap4\BootstrapAsset::class => false
             ]
         ]
         /*
