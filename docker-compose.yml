@@ -5,7 +5,7 @@ services:
   frontend:
     build: frontend
     environment:
-      - "PHP_USER_ID=33333"
+      - "PHP_USER_ID=${id}"
     ports:
       - 20081:80
     volumes:
@@ -17,7 +17,7 @@ services:
   backend:
     build: backend
     environment:
-      - "PHP_USER_ID=33333"
+      - "PHP_USER_ID=${id}"
     ports:
       - 21081:80
     volumes:
