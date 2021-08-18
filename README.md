@@ -23,3 +23,22 @@ sudo apt-get install unzip
 unzip gh-pages.zip 
 ```
 
+### Add .htaccess to web folder
+
+If your webserver is Apache you'll need to add an .htaccess file with the following content to web (or public_html or whatever) (where the index.php file is located):
+
+```conf=
+Options +FollowSymLinks
+IndexIgnore */*
+
+RewriteEngine on
+
+# if a directory or a file exists, use it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# otherwise forward it to index.php
+RewriteRule . index.php
+```
+
+https://github.com/yiisoft/yii2/blob/master/docs/guide/tutorial-shared-hosting.md
