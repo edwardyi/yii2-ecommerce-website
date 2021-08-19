@@ -31,6 +31,8 @@ class m210808_063835_create_products_table extends Migration
 
         $this->addPrimaryKey('pk-products-id', '{{%products%}}', 'id');
 
+        $this->alterColumn('{{%products}}', 'id', $this->integer(10).' UNSIGNED NOT NULL AUTO_INCREMENT');
+
         // creates index for column `created_by`
         $this->createIndex(
             '{{%idx-products-created_by}}',

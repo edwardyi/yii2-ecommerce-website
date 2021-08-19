@@ -28,6 +28,8 @@ class m210808_065858_create_orders_table extends Migration
         ]);
 
         $this->addPrimaryKey('pk-orders-id', '{{%orders%}}', 'id');
+        
+        $this->alterColumn('{{%orders}}', 'id', $this->integer(10).' UNSIGNED NOT NULL AUTO_INCREMENT');
 
         // creates index for column `created_by`
         $this->createIndex(

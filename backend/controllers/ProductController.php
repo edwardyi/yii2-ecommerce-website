@@ -7,6 +7,7 @@ use common\models\Product;
 use backend\models\search\ProductSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\UploadedFile;
 use yii\filters\VerbFilter;
 
 /**
@@ -65,6 +66,8 @@ class ProductController extends Controller
     public function actionCreate()
     {
         $model = new Product();
+
+        $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
